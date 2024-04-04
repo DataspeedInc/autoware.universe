@@ -30,6 +30,10 @@ rclcpp_components_register_node(pointcloud_map_loader_node
 ament_auto_add_library(lanelet2_map_loader_node SHARED
   src/lanelet2_map_loader/lanelet2_map_loader_node.cpp
 )
+ament_target_dependencies(lanelet2_map_loader_node
+  component_interface_utils
+  geography_utils
+)
 
 rclcpp_components_register_node(lanelet2_map_loader_node
   PLUGIN "Lanelet2MapLoaderNode"

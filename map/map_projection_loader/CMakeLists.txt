@@ -5,10 +5,12 @@ find_package(autoware_cmake REQUIRED)
 autoware_package()
 
 ament_auto_find_build_dependencies()
-
 ament_auto_add_library(map_projection_loader_lib SHARED
   src/map_projection_loader.cpp
   src/load_info_from_lanelet2_map.cpp
+)
+ament_target_dependencies(map_projection_loader_lib
+  component_interface_utils
 )
 
 target_link_libraries(map_projection_loader_lib yaml-cpp)
